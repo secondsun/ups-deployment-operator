@@ -16,7 +16,7 @@ spec:
       containers:
         - name: ups-deployment-operator
           # Replace this with the built image name
-          image: REPLACE_IMAGE
+          image: quay.io/secondsun/ups-deployment-operator
           command:
           - ups-deployment-operator
           imagePullPolicy: Always

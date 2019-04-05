@@ -1,0 +1,11 @@
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: ups-deployment-operator
+subjects:
+- kind: ServiceAccount
+  name: ups-deployment-operator
+roleRef:
+  kind: Role
+  name: ups-deployment-operator
+  apiGroup: rbac.authorization.k8s.io

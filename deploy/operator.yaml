@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ups-deployment-operator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: ups-deployment-operator
+  template:
+    metadata:
+      labels:
+        name: ups-deployment-operator
+    spec:
+      serviceAccountName: ups-deployment-operator
+      containers:
+        - name: ups-deployment-operator
+          # Replace this with the built image name
+          image: REPLACE_IMAGE
+          command:
+          - ups-deployment-operator
+          imagePullPolicy: Always
+          env:
+            - name: WATCH_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: OPERATOR_NAME
+              value: "ups-deployment-operator"

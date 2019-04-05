@@ -143,8 +143,8 @@ func newPodForCR(cr *aerogearv1alpha1.UnifiedPushService) *corev1.Pod {
 		Spec: corev1.PodSpec{
 			Containers: []corev1.Container{
 				{
-					Name:    "busybox",
-					Image:   "busybox",
+					Name:    "ups",
+					Image:   "quay.io/secondsun/ups-inmemory:latest",
 					Command: []string{"sleep", "3600"},
 				},
 			},
